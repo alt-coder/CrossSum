@@ -90,7 +90,7 @@ export logging_steps=100
 export evaluation_strategy="no"
 
 # model settings
-export model_name="google/mt5-base"
+export model_name="csebuetnlp/mT5_m2o_hindi_crossSum"
 
 # optimization settings
 export learning_rate=1
