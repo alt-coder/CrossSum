@@ -64,7 +64,7 @@ export INPUT_DIR="${ROOT_INPUT_DIR}/${BASENAME}"
 export OUTPUT_DIR="${ROOT_OUTPUT_DIR}/${BASENAME}"
 export MIN_EXAMPLE_COUNT=30
 
-conda activate "${BASE_DIR}/env" || source activate "${BASE_DIR}/env"
+# conda activate "${BASE_DIR}/env" || source activate "${BASE_DIR}/env"
 
 if [[ "${SLURM_PROCID:-0}" -eq 0 && "${SLURM_LOCALID:-0}" -eq 0 ]]; then
     mkdir -p $OUTPUT_DIR
@@ -81,16 +81,25 @@ fi
 # be cached if this variable is set
 export LINK_CACHE_ONLY=false 
 
+# # training settings
+# export max_steps=25000
+# export save_steps=25000
+# export logging_steps=100
+
 # training settings
-export max_steps=25000
-export save_steps=25000
+export max_steps=2500
+export save_steps=500
 export logging_steps=100
 
 # validation settings
 export evaluation_strategy="no"
 
+# # model settings
+# export model_name="google/mt5-base"
+
 # model settings
 export model_name="csebuetnlp/mT5_m2o_hindi_crossSum"
+
 
 # optimization settings
 export learning_rate=1
